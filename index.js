@@ -4,13 +4,27 @@
 //     alert("The button has been clicked")
 // };
 
+
+//Detecting Button Press
+
 document.querySelectorAll("button").forEach(function (button) {
   button.addEventListener("click", handleClick);
 });
 
 function handleClick() {
   var buttonInnerHTML = this.innerHTML;
-  switch (buttonInnerHTML) {
+  makeSound(buttonInnerHTML);
+} 
+
+//Detecting Keyboard Press
+
+document.addEventListener("keypress", function(event){
+
+  makeSound(event.key);
+});
+
+function makeSound(key) {
+  switch (key) {
     case "w":
       var tom1 = new Audio("sounds/tom-1.mp3")
       tom1.play();
@@ -51,5 +65,3 @@ function handleClick() {
       break;
   } 
 }
-
-
